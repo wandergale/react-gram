@@ -12,6 +12,8 @@ const server = express();
 server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
 
+server.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+
 server.use(routes);
 
 server.listen(PORT, () => {
