@@ -4,7 +4,7 @@ const jwtSecrete = process.env.JWT_SECRET;
 
 const authGuard = async (req, res, next) => {
   const authHeader = req.headers["authorization"]; // barear dyuuadydas
-  const token = authHeader && authHeader.spli(" ")[1]; // we gonna get the second part "dyuuadydas"
+  const token = authHeader && authHeader.split(" ")[1]; // we gonna get the second part "dyuuadydas"
 
   // check if header has a token
   if (!token) {
@@ -16,7 +16,7 @@ const authGuard = async (req, res, next) => {
   try {
     const verify = jwt.verify(token, jwtSecrete);
 
-    res.user = await User.findById(verify.id).select("-password");
+    req.user = await User.findById(verify.id).select("-password");
 
     next();
   } catch (error) {
