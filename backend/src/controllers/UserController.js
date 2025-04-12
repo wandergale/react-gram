@@ -15,7 +15,11 @@ const register = async (req, res) => {
   res.send("Resgistrado");
 };
 
+const login = (req, res) => {
+  res.send("login");
+};
 
 module.exports = {
-    register
-}
+  register,
+  login,
+};
