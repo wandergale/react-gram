@@ -29,4 +29,32 @@ const userCreateValidation = () => {
   ];
 };
 
-module.exports = { userCreateValidation };
+const userUpdateValidation = () => {
+  return [
+    body("name")
+      .optional()
+      .isLength({ min: 3 })
+      .withMessage("O nome precisar ter pelo menos 3 caracteres"),
+    body("password")
+      .optional()
+      .isLength({ min: 3 })
+      .withMessage("A senha precisar ter pelo menos 8 caracteres"),
+  ];
+};
+
+const loginValidation = () => {
+  return [
+    body("email")
+      .isString()
+      .withMessage("O e-mail é obrigatorio")
+      .isEmail()
+      .withMessage("Insira um e-mail válido"),
+    body("password").isString().withMessage("A senha é obrigatória"),
+  ];
+};
+
+module.exports = {
+  userCreateValidation,
+  userUpdateValidation,
+  loginValidation,
+};
