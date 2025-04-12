@@ -33,7 +33,7 @@ const loginValidation = () => {
   return [
     body("email")
       .isString()
-      .withMessage("O emil é obrigatorio")
+      .withMessage("O e-mail é obrigatorio")
       .isEmail()
       .withMessage("Insira um e-mail válido"),
     body("password").isString().withMessage("A senha é obrigatória"),
