@@ -70,14 +70,21 @@ const login = async (req, res) => {
   });
 };
 
+// get current user
 const getCurrentUser = async (req, res) => {
   const user = req.user;
 
   res.status(200).json(user);
 };
 
+// update an user
+const update = async (req, res) => {
+  res.send("update");
+};
+
 module.exports = {
   register,
   login,
   getCurrentUser,
+  update,
 };
