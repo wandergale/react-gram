@@ -29,6 +29,19 @@ const userCreateValidation = () => {
   ];
 };
 
+const userUpdateValidation = () => {
+  return [
+    body("name")
+      .optional()
+      .isLength({ min: 3 })
+      .withMessage("O nome precisar ter pelo menos 3 caracteres"),
+    body("password")
+      .optional()
+      .isLength({ min: 3 })
+      .withMessage("A senha precisar ter pelo menos 8 caracteres"),
+  ];
+};
+
 const loginValidation = () => {
   return [
     body("email")
@@ -40,4 +53,8 @@ const loginValidation = () => {
   ];
 };
 
-module.exports = { userCreateValidation, loginValidation };
+module.exports = {
+  userCreateValidation,
+  userUpdateValidation,
+  loginValidation,
+};
