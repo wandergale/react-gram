@@ -1,4 +1,4 @@
-const User = requie("../models/User.js");
+const User = require("../models/User.js");
 const jwt = require("jsonwebtoken");
 const jwtSecrete = process.env.JWT_SECRET;
 
